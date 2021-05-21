@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter/pages/buy-rent.dart';
+import 'package:test_flutter/pages/profile.dart';
 import 'package:test_flutter/pages/sell.dart';
 
 void main() => runApp(MaterialApp(home: MyApp()));
@@ -17,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   List _pages = [
     BuyRentPage(),
     SellPage(),
-    Text("Profile"),
+    ProfilePage(),
   ];
 
   _changeIndex(int index) {
