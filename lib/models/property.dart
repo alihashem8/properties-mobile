@@ -1,20 +1,20 @@
 
-class properties {
+class Property {
   int id;
   String description;
   double price;
-  double showPrice;
+  bool showPrice;
   int roomsNumber;
   int creatorId;
   int categoryId;
   int listingtypeId;
   String locationDiscription;
   String contactInfo;
-  String isSold;
+  bool isSold;
   DateTime updatedAt;
   DateTime createdAt;
 
-  properties(
+  Property(
       {this.id,
       this.description,
       this.price,
@@ -45,19 +45,19 @@ class properties {
   'createdAt': createdAt,
 
 };
-      factory properties.fromJson (Map<String,dynamic> json){
-  return new properties(
+      factory Property.fromJson (Map<String,dynamic> json){
+  return new Property(
     id: json['id'] as int,
     description: json ['description'] as String,
     price: json ['price'] as double,
-    showPrice: json ['showPrice'] as double,
+    showPrice: json ['showPrice'] as bool,
     roomsNumber: json ['roomsNumber'] as int,
     creatorId: json ['creatorId'] as int,
     categoryId: json ['categoryId'] as int,
     listingtypeId: json ['listingtypeId'] as int,
     locationDiscription: json ['locationDiscription'] as String,
     contactInfo: json ['contactInfo'] as String,
-    isSold: json ['isSold'] as String,
+    isSold: json ['isSold'] as bool,
     updatedAt: json ['updatedAt'] as DateTime,
     createdAt: json ['createdAt'] as DateTime,
   );

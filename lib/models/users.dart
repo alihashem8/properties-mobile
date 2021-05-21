@@ -1,4 +1,4 @@
-class users {
+class User {
   int id;
   String name;
   int phoneNumber;
@@ -6,7 +6,7 @@ class users {
   DateTime updatedAt;
   DateTime createdAt;
 
-  users(
+  User(
       {this.id,
       this.name,
       this.phoneNumber,
@@ -23,8 +23,8 @@ class users {
   'createdAt': createdAt,
 
 };
-      factory users.fromJson (Map<String,dynamic> json){
-  return new users(
+      factory User.fromJson (Map<String,dynamic> json){
+  return new User(
     id: json['id'] as int,
     name: json ['name'] as String,
     phoneNumber: json ['phoneNumber'] as int,

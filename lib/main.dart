@@ -1,6 +1,8 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:test_flutter/pages/buy-rent.dart';
+import 'package:test_flutter/pages/sell.dart';
 
 void main() => runApp(MaterialApp(home: MyApp()));
 
@@ -13,9 +15,9 @@ class _MyAppState extends State<MyApp> {
   int _selectedTabIndex = 0;
 
   List _pages = [
-    Text("Home"),
-    Text("Buy"),
-    Text("Sell"),
+    BuyRentPage(),
+    SellPage(),
+    Text("Profile"),
   ];
 
   _changeIndex(int index) {
@@ -28,31 +30,19 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Appartments edit Selling"), backgroundColor: Colors.red[400]),
+          title: Text("Appartments Selling"), backgroundColor: Colors.red[400]),
       body: Center(child: _pages[_selectedTabIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTabIndex,
         onTap: _changeIndex,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home), title: Text("Home")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money), title: Text("Buy")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Buy/Rent")),
           BottomNavigationBarItem(
               icon: Icon(Icons.attach_money), title: Text("Sell")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), title: Text("Profile")),
         ],
       ),
     );
   }
-}
-class Users extends StatelessWidget{
-  Users users;
-  Users(this.users);
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(margin: EdgeInsets.all(5),
-      child: Card(shape: RoundedRectangleBorder(),),)
-    );
-  }    
 }
