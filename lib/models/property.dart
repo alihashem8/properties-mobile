@@ -7,10 +7,10 @@ class Property {
   int roomsNumber;
   int creatorId;
   int categoryId;
-  int listingtypeId;
-  String locationDiscription;
+  int listingTypeId;
+  String locationDescription;
   String contactInfo;
-  bool isSold;
+  String image;
   DateTime updatedAt;
   DateTime createdAt;
 
@@ -22,10 +22,10 @@ class Property {
       this.roomsNumber,
       this.creatorId,
       this.categoryId,
-      this.listingtypeId,
-      this.locationDiscription,
+      this.listingTypeId,
+      this.locationDescription,
       this.contactInfo,
-      this.isSold,
+      this.image,
       this.updatedAt,
       this.createdAt});
 
@@ -37,10 +37,10 @@ class Property {
   'roomsNumber': roomsNumber,
   'creatorId': creatorId,
   'categoryId': categoryId,
-  'listingtypeId': listingtypeId,
-  'locationDiscription': locationDiscription,
+  'listingTypeId': listingTypeId,
+  'locationDescription': locationDescription,
   'contactInfo': contactInfo,
-  'isSold': isSold,
+    'image': image,
   'updatedAt': updatedAt,
   'createdAt': createdAt,
 
@@ -51,13 +51,13 @@ class Property {
     description: json ['description'] as String,
     price: json ['price'] as double,
     showPrice: json ['showPrice'] as bool,
-    roomsNumber: json ['roomsNumber'] as int,
-    creatorId: json ['creatorId'] as int,
+    roomsNumber: json ['bedroomsNumber'] as int,
+    creatorId: json ['userId'] as int,
     categoryId: json ['categoryId'] as int,
-    listingtypeId: json ['listingtypeId'] as int,
-    locationDiscription: json ['locationDiscription'] as String,
+    listingTypeId: json ['typeId'] as int,
+    locationDescription: json ['locationDiscription'] as String,
     contactInfo: json ['contactInfo'] as String,
-    isSold: json ['isSold'] as bool,
+    image: json ['image'] as String,
     updatedAt: json ['updatedAt'] as DateTime,
     createdAt: json ['createdAt'] as DateTime,
   );

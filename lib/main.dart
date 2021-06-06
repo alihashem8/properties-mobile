@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter/pages/buy-rent.dart';
+import 'package:test_flutter/pages/login.dart';
 import 'package:test_flutter/pages/profile.dart';
 import 'package:test_flutter/pages/sell.dart';
 
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   List _pages = [
     BuyRentPage(),
     SellPage(),
-    ProfilePage(),
+    LoginPage(),
   ];
 
   _changeIndex(int index) {
