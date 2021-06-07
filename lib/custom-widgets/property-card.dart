@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/models/property.dart';
+import 'package:test_flutter/pages/propertyDetails.dart';
 
 class PropertyCard extends StatelessWidget {
   Property property;
@@ -59,7 +60,9 @@ class PropertyCard extends StatelessWidget {
                         height: 40,
                         child: FloatingActionButton.extended(
                           backgroundColor: Colors.red[400],
-                          onPressed: () {},
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => PropertyDetails(property)),);
+                          },
                           icon: Icon(Icons.add, size: 12,),
                           label: Text("Show More",style: TextStyle(fontSize: 12),),
                         ),
