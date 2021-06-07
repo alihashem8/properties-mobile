@@ -28,7 +28,7 @@ class PropertiesServices {
         price: 1200,
         roomsNumber: 2,
         showPrice: true,
-        image: null,
+        image: 'https://th.bing.com/th/id/R220965b6574a3f7a3001116ed4b98a31?rik=xk98JDwYErqNbg&pid=ImgRaw',
         updatedAt: new DateTime.now())
   ];
 
