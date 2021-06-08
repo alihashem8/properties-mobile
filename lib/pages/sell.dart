@@ -186,19 +186,19 @@ class _SellPageState extends State<SellPage> {
                                 hintText: '"Price in \$"'),
                           )
                         ]),
-                    Container(
-                        margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                   // Container(
+                     //   margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                         // ignore: deprecated_member_use
-                        child: new OutlineButton(
-                          child: new Text("Add images"),
-                          borderSide: BorderSide(
-                              color: Colors.red[400],
-                              style: BorderStyle.solid,
-                              width: 2),
-                          onPressed: getImage,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                        )),
+                       // child: new OutlineButton(
+                         // child: new Text("Add images"),
+                          //borderSide: BorderSide(
+                            //  color: Colors.red[400],
+                              //style: BorderStyle.solid,
+                              //width: 2),
+                          //onPressed: getImage,
+                          //shape: new RoundedRectangleBorder(
+                           //   borderRadius: new BorderRadius.circular(30.0)),
+                        //)),
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                       child: FloatingActionButton.extended(
