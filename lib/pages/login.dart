@@ -1,31 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:test_flutter/main.dart';
-import 'package:test_flutter/pages/buy-rent.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test_flutter/pages/signUp.dart';
+import 'package:test_flutter/services/auth.service.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-    );
-  }
-}
-
+// ignore: must_be_immutable
 class LoginPage extends StatefulWidget {
+  var isLoggedIn;
+  LoginPage(this.isLoggedIn);
   @override
-  _LoginDemoState createState() => _LoginDemoState();
+  _LoginDemoState createState() => _LoginDemoState(isLoggedIn);
 }
 
 class _LoginDemoState extends State<LoginPage> {
+  var isLoggedIn;
+  AuthService authService = AuthService();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  _LoginDemoState(this.isLoggedIn);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +38,9 @@ class _LoginDemoState extends State<LoginPage> {
               ),
             ),
             Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(controller: emailController,
+              child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -60,7 +51,8 @@ class _LoginDemoState extends State<LoginPage> {
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(controller: passwordController,
+              child: TextField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -68,31 +60,21 @@ class _LoginDemoState extends State<LoginPage> {
                     hintText: 'Enter secure password'),
               ),
             ),
-            FlatButton(
-              onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
-              },
-              child: Text(
-                'Forgot Password',
-                style: TextStyle(color: Colors.red[400], fontSize: 15),
-              ),
-            ),
             Container(
-              height: 50,
-              width: 250,
+              margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              // height: 50,
+              // width: 250,
               decoration: BoxDecoration(
-                  color: Colors.red[400],
+                  // color: Colors.red[400],
                   borderRadius: BorderRadius.circular(20)),
+              // ignore: deprecated_member_use
               child: FlatButton(
-                onPressed:_handleLogin ,
+                onPressed: _handleLogin,
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 130,
             ),
             InkWell(
               onTap: () => Navigator.of(context)
@@ -104,17 +86,18 @@ class _LoginDemoState extends State<LoginPage> {
       ),
     );
   }
-  void _handleLogin() async{
-    setState(() {
-      
-    });
-    var data ={
-      'email' : emailController.text,
-      'password' : passwordController.text,
-    };
-print(data);
-  // SharedPreferences prefs = await SharedPreferences.getInstance();
 
-// SharedPreferences sp = await SharedPreferences.getInstance();
+  void _handleLogin() async {
+    setState(() {});
+    var data = {
+      'email': emailController.text,
+      'password': passwordController.text,
+    };
+    print(data);
+    await authService.login(data);
+    var token = await authService.login(data);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("token", token);
+    isLoggedIn = true;
   }
 }

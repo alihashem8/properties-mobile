@@ -1,4 +1,5 @@
 
+// ignore: camel_case_types
 class propertyImage {
   int id;
   int propertyId;

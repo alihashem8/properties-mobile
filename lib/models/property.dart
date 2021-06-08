@@ -2,8 +2,8 @@
 class Property {
   int id;
   String description;
-  double price;
-  bool showPrice;
+  int price;
+  int showPrice;
   int roomsNumber;
   int creatorId;
   int categoryId;
@@ -49,13 +49,13 @@ class Property {
   return new Property(
     id: json['id'] as int,
     description: json ['description'] as String,
-    price: json ['price'] as double,
-    showPrice: json ['showPrice'] as bool,
-    roomsNumber: json ['bedroomsNumber'] as int,
+    price: json ['price'] as int,
+    showPrice: json ['showPrice'] as int,
+    roomsNumber: json ['roomsNumber'] as int,
     creatorId: json ['userId'] as int,
     categoryId: json ['categoryId'] as int,
     listingTypeId: json ['typeId'] as int,
-    locationDescription: json ['locationDiscription'] as String,
+    locationDescription: json ['locationDescription'] as String,
     contactInfo: json ['contactInfo'] as String,
     image: json ['image'] as String,
     updatedAt: json ['updatedAt'] as DateTime,

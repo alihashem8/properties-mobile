@@ -1,38 +1,37 @@
+import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:test_flutter/models/property.dart';
+import 'package:http/http.dart' as http;
 
 class PropertiesServices {
   var properties = [
-    Property(
-        id: 1,
-        categoryId: 1,
-        contactInfo: 'info',
-        createdAt: new DateTime.now(),
-        creatorId: 1,
-        description: 'description',
-        listingTypeId: 1,
-        locationDescription: 'location',
-        price: 20012,
-        roomsNumber: 1,
-        image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        showPrice: false,
-        updatedAt: new DateTime.now()),
-    Property(
-        id: 2,
-        categoryId: 1,
-        contactInfo: 'info2',
-        createdAt: new DateTime.now(),
-        creatorId: 2,
-        description: 'description2',
-        listingTypeId: 1,
-        locationDescription: 'location2',
-        price: 1200,
-        roomsNumber: 2,
-        showPrice: true,
-        image: 'https://th.bing.com/th/id/R220965b6574a3f7a3001116ed4b98a31?rik=xk98JDwYErqNbg&pid=ImgRaw',
-        updatedAt: new DateTime.now())
+  
   ];
+  getAll() async {
+    properties = [];
+    var url =
+        Uri.parse('https://prop-back.000webhostapp.com/api/properties/getAlls');
 
-  getAll() {
+    var response = await http.get(url);
+    
+    dynamic propertiesJson = jsonDecode(response.body);
+    print(propertiesJson);
+    for (var p in propertiesJson) {
+      properties.add(Property.fromJson(p));
+    }
+    print(properties.length);
     return properties;
+  }
+
+  store(data) async {
+    print(data);
+    var url =
+        Uri.parse('https://prop-back.000webhostapp.com/api/properties/store');
+    var response = await http.post(url, body: data);
+    print(response.statusCode);
+    debugPrint(response.toString());
+    // print(response);
+
+    return response;
   }
 }

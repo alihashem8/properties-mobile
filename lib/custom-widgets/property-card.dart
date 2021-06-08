@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/models/property.dart';
 import 'package:test_flutter/pages/propertyDetails.dart';
 
+// ignore: must_be_immutable
 class PropertyCard extends StatelessWidget {
   Property property;
 
@@ -39,13 +40,13 @@ class PropertyCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      property.locationDescription,
+                      property.locationDescription +"",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Container(
                         margin: EdgeInsets.only(top: 20),
-                        child: property.showPrice
+                        child: property.showPrice == 1
                             ? Text(property.price.toString() + " \$ ")
                             : Text('Contact us for price'))
                   ],

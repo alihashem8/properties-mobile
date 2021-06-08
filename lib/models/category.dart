@@ -1,4 +1,5 @@
 
+// ignore: camel_case_types
 class categories {
   int id;
   String title;

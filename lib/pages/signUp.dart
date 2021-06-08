@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_flutter/pages/buy-rent.dart';
-import 'package:test_flutter/pages/login.dart';
 import 'package:test_flutter/services/auth.service.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -91,6 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   decoration: BoxDecoration(
                       color: Colors.red[400],
                       borderRadius: BorderRadius.circular(20)),
+                  // ignore: deprecated_member_use
                   child: FlatButton(
                     onPressed: _handleSignUp,
                     child: Text(
@@ -117,7 +116,8 @@ class _SignUpPageState extends State<SignUpPage> {
     };
     print(data);
     await authService.signUp(data);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.pop(
+      context,
+    );
   }
 }

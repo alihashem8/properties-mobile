@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter/pages/buy-rent.dart';
-import 'package:test_flutter/pages/login.dart';
 import 'package:test_flutter/pages/profile.dart';
 import 'package:test_flutter/pages/sell.dart';
 
@@ -19,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   List _pages = [
     BuyRentPage(),
     SellPage(),
-    LoginPage(),
+    ProfilePage(),
   ];
 
   _changeIndex(int index) {
@@ -38,11 +37,11 @@ class _MyAppState extends State<MyApp> {
         currentIndex: _selectedTabIndex,
         onTap: _changeIndex,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Buy/Rent")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Buy/Rent"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money), title: Text("Sell")),
+              icon: Icon(Icons.attach_money), label: "Sell"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle), title: Text("Profile")),
+              icon: Icon(Icons.account_circle), label: "Profile"),
         ],
       ),
     );

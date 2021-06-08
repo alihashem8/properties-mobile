@@ -1,4 +1,5 @@
 
+// ignore: camel_case_types
 class soldProperties {
   int id;
   int propertyId;

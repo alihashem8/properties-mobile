@@ -17,20 +17,25 @@ class _BuyRentPageState extends State<BuyRentPage> {
 
   @override
   void initState() {
-    properties = propertiesService.getAll();
-    super.initState();
+      getProperties();
+              super.initState(); 
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
-    Container(
+    return Container(
         child: ListView.builder(
-          itemCount: properties.length,
-          itemBuilder: (context, index) {
-            return PropertyCard(properties[index]);
-          },
-        )));
+      itemCount: properties.length,
+      itemBuilder: (context, index) {
+        return PropertyCard(properties[index]);
+      },
+    ));
+  }
+
+  Future<void> getProperties() async {
+    properties = await propertiesService.getAll();
+    setState(() {
+      properties = properties;
+    });
   }
 }

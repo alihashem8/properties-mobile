@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/models/property.dart';
 
+// ignore: must_be_immutable
 class PropertyDetails extends StatefulWidget {
   Property property;
   PropertyDetails(this.property);
@@ -132,7 +133,7 @@ class PropertyDetailsState extends State<PropertyDetails> {
                         Expanded(
                           child: Container(),
                         ),
-                        property.showPrice
+                        property.showPrice == 1
                             ? Text(property.price.toString() + " \$ ")
                             : Text('Contact us for price'),
                       ],
