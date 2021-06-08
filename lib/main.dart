@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Appartments Selling"), backgroundColor: Colors.red[400]),
+          title: Text("Property Market"), backgroundColor: Colors.red[400]),
       body: Center(child: _pages[_selectedTabIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTabIndex,

@@ -36,6 +36,7 @@ class PropertyCard extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(20, 40, 10, 0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       property.locationDescription,
@@ -60,11 +61,22 @@ class PropertyCard extends StatelessWidget {
                         height: 40,
                         child: FloatingActionButton.extended(
                           backgroundColor: Colors.red[400],
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => PropertyDetails(property)),);
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      PropertyDetails(property)),
+                            );
                           },
-                          icon: Icon(Icons.add, size: 12,),
-                          label: Text("Show More",style: TextStyle(fontSize: 12),),
+                          icon: Icon(
+                            Icons.add,
+                            size: 12,
+                          ),
+                          label: Text(
+                            "Show More",
+                            style: TextStyle(fontSize: 12),
+                          ),
                         ),
                       ),
                     ]),

@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:test_flutter/main.dart';
 import 'package:test_flutter/pages/buy-rent.dart';
+import 'package:test_flutter/pages/signUp.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +24,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginDemoState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +34,7 @@ class _LoginDemoState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: Center(
                 child: Container(
                     width: 200,
@@ -37,13 +42,14 @@ class _LoginDemoState extends State<LoginPage> {
                     /*decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(50.0)),*/
-                    child: Image.network('https://th.bing.com/th/id/R01929300efb541e17fd9d6e0a2dbc288?rik=AAClV4AFnNA97g&pid=ImgRaw')),
+                    child: Image.network(
+                        'https://th.bing.com/th/id/R01929300efb541e17fd9d6e0a2dbc288?rik=AAClV4AFnNA97g&pid=ImgRaw')),
               ),
             ),
             Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
+              child: TextField(controller: emailController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -54,8 +60,7 @@ class _LoginDemoState extends State<LoginPage> {
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-
+              child: TextField(controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -64,7 +69,7 @@ class _LoginDemoState extends State<LoginPage> {
               ),
             ),
             FlatButton(
-              onPressed: (){
+              onPressed: () {
                 //TODO FORGOT PASSWORD SCREEN GOES HERE
               },
               child: Text(
@@ -76,12 +81,10 @@ class _LoginDemoState extends State<LoginPage> {
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                  color: Colors.red[400], borderRadius: BorderRadius.circular(20)),
+                  color: Colors.red[400],
+                  borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => BuyRentPage()));
-                },
+                onPressed:_handleLogin ,
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
@@ -91,10 +94,27 @@ class _LoginDemoState extends State<LoginPage> {
             SizedBox(
               height: 130,
             ),
-            Text('New User? Create Account')
+            InkWell(
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => SignUpPage())),
+              child: Text('New User? Create Account'),
+            ),
           ],
         ),
       ),
     );
+  }
+  void _handleLogin() async{
+    setState(() {
+      
+    });
+    var data ={
+      'email' : emailController.text,
+      'password' : passwordController.text,
+    };
+print(data);
+  // SharedPreferences prefs = await SharedPreferences.getInstance();
+
+// SharedPreferences sp = await SharedPreferences.getInstance();
   }
 }

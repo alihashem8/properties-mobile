@@ -11,10 +11,10 @@ class PropertiesServices {
         description: 'description',
         listingTypeId: 1,
         locationDescription: 'location',
-        price: 200,
+        price: 20012,
         roomsNumber: 1,
         image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        showPrice: true,
+        showPrice: false,
         updatedAt: new DateTime.now()),
     Property(
         id: 2,

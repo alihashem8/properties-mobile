@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:test_flutter/custom-widgets/property-card.dart';
 import 'package:test_flutter/services/properties.service.dart';
 
@@ -22,12 +23,14 @@ class _BuyRentPageState extends State<BuyRentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body:
+    Container(
         child: ListView.builder(
           itemCount: properties.length,
           itemBuilder: (context, index) {
             return PropertyCard(properties[index]);
           },
-        ));
+        )));
   }
 }
